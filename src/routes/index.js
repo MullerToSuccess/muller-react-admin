@@ -28,7 +28,8 @@ import Wysiwyg from 'bundle-loader?lazy!../components/ui/Wysiwyg';  // 按需加
 import Bundle from '../components/widget/Bundle';
 import Cssmodule from '../components/cssmodule';
 import MapUi from '../components/ui/map';
-
+import Hello from '../components/Hello';
+import Test from '../components/test/Test';
 const WysiwygBundle = (props) => (
     <Bundle load={Wysiwyg}>
         {(Component) => <Component {...props} />}
@@ -65,6 +66,7 @@ export default class CRouter extends Component {
                 <Route exact path="/app/ui/drags" component={Drags} />
                 <Route exact path="/app/ui/gallery" component={Gallery} />
                 <Route exact path="/app/ui/map" component={MapUi} />
+                <Route exact path="/app/ui/test" component={Test} />
 
                 <Route exact path="/app/animation/basicAnimations" component={BasicAnimations} />
                 <Route exact path="/app/animation/exampleAnimations" component={ExampleAnimations} />
@@ -73,6 +75,7 @@ export default class CRouter extends Component {
                 <Route exact path="/app/auth/routerEnter" component={(props) => this.requireAuth('auth/testPage', <RouterEnter {...props} />)} />
 
                 <Route exact path="/app/cssModule" component={Cssmodule} />
+                <Route exact path="/app/hello" component={Hello} />
 
                 <Route render={() => <Redirect to="/404" />} />
             </Switch>

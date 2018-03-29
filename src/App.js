@@ -29,15 +29,10 @@ class App extends Component {
     componentDidMount() {
         const openNotification = () => {
             notification.open({
-              message: '博主-yezihaohao',
+              message: 'Muller',
               description: (
                   <div>
-                      <p>
-                          GitHub地址： <a href="https://github.com/yezihaohao" target="_blank" rel="noopener noreferrer">https://github.com/yezihaohao</a>
-                      </p>
-                      <p>
-                          博客地址： <a href="https://yezihaohao.github.io/" target="_blank" rel="noopener noreferrer">https://yezihaohao.github.io/</a>
-                      </p>
+                      
                   </div>
               ),
               icon: <Icon type="smile-circle" style={{ color: 'red' }} />,
@@ -72,7 +67,7 @@ class App extends Component {
                         <Routes auth={auth} />
                     </Content>
                     <Footer style={{ textAlign: 'center' }}>
-                    React-Admin ©2017 Created by 865470087@qq.com
+                    Muller-React-Admin ©2018 Created by 409601520@qq.com
                     </Footer>
                 </Layout>
                 

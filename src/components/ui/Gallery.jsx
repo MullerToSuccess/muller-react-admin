@@ -95,8 +95,7 @@ class Gallery extends React.Component {
                             <img onClick={() => this.openGallery(v2)} alt="example" width="100%" src={v2} />
                         </div>
                         <div className="pa-m">
-                            <h3>React Admin</h3>
-                            <small><a href="https://yezihaohao.github.io/" target="_blank" rel="noopener noreferrer">https://yezihaohao.github.io/</a></small>
+                            <h3>Muller React Admin</h3>
                         </div>
                     </Card>
                 </div>
@@ -104,7 +103,7 @@ class Gallery extends React.Component {
         ));
         return (
             <div className="gutter-example button-demo">
-                <BreadcrumbCustom first="UI" second="画廊(图片来自花瓣网，仅学习，若侵权请联系删除)" />
+                <BreadcrumbCustom first="UI" second="画廊" />
                 <Row gutter={10}>
                     <Col className="gutter-row" md={5}>
                         {imgsTag[0]}

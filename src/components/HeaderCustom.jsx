@@ -67,6 +67,9 @@ class HeaderCustom extends Component {
         localStorage.removeItem('user');
         this.props.history.push('/login')
     };
+    hello = () => {
+        this.props.history.push('/app/hello')
+    }
     popoverHide = () => {
         this.setState({
             visible: false,
@@ -78,7 +81,7 @@ class HeaderCustom extends Component {
     render() {
         const { responsive, path } = this.props;
         return (
-            <Header style={{ background: '#fff', padding: 0, height: 65 }} className="custom-theme" >
+            <Header style={{ background: '#ccc', padding: 0, height: 65 }} className="custom-theme" >
                 {
                     responsive.data.isMobile ? (
                         <Popover content={<SiderCustom path={path} popoverHide={this.popoverHide} />} trigger="click" placement="bottomLeft" visible={this.state.visible} onVisibleChange={this.handleVisibleChange}>
@@ -97,9 +100,7 @@ class HeaderCustom extends Component {
                     style={{ lineHeight: '64px', float: 'right' }}
                     onClick={this.menuClick}
                 >
-                    <Menu.Item key="full" onClick={this.screenFull} >
-                        <Icon type="arrows-alt" onClick={this.screenFull} />
-                    </Menu.Item>
+                   
                     <Menu.Item key="1">
                         <Badge count={25} overflowCount={10} style={{marginLeft: 10}}>
                             <Icon type="notification" />
@@ -107,7 +108,7 @@ class HeaderCustom extends Component {
                     </Menu.Item>
                     <SubMenu title={<span className="avatar"><img src={avater} alt="头像" /><i className="on bottom b-white" /></span>}>
                         <MenuItemGroup title="用户中心">
-                            <Menu.Item key="setting:1">你好 - {this.props.user.userName}</Menu.Item>
+                            <Menu.Item key="setting:1"><span onClick={this.hello}>你好 - {this.props.user.userName}</span></Menu.Item>
                             <Menu.Item key="setting:2">个人信息</Menu.Item>
                             <Menu.Item key="logout"><span onClick={this.logout}>退出登录</span></Menu.Item>
                         </MenuItemGroup>
