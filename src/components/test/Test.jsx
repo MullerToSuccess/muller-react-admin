@@ -2,27 +2,17 @@
  * Created by Muller on 2018/3/27.
  */
 import React from 'react';
-import {Row, Col} from 'antd';
+import {Row, Card} from 'antd';
+// import EchartsViews from '../dashboard/EchartsViews';
+import EchartsProjects from '../dashboard/EchartsProjects';
 class Test extends React.Component {
     render() {
         return (
-            <div style={{height: '100%'}}>
+            <div style={{height: '100%','margin-top':100}}>
             <Row gutter={10}>
-            <Col className="gutter-row" md={5}>
-            1
-            </Col>
-            <Col className="gutter-row" md={5}>
-            2
-            </Col>
-            <Col className="gutter-row" md={5}>
-            3
-            </Col>
-            <Col className="gutter-row" md={5}>
-            4
-            </Col>
-            <Col className="gutter-row" md={4}>
-            5
-            </Col>
+            <Card bordered={false} className={'no-padding'}>
+            <EchartsProjects />
+            </Card>
         </Row>
             </div>
         )

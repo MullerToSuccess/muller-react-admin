@@ -30,6 +30,7 @@ import Cssmodule from '../components/cssmodule';
 import MapUi from '../components/ui/map';
 import Hello from '../components/Hello';
 import Test from '../components/test/Test';
+import Talk from '../components/Talk';
 const WysiwygBundle = (props) => (
     <Bundle load={Wysiwyg}>
         {(Component) => <Component {...props} />}
@@ -76,6 +77,7 @@ export default class CRouter extends Component {
 
                 <Route exact path="/app/cssModule" component={Cssmodule} />
                 <Route exact path="/app/hello" component={Hello} />
+                <Route exact path="/app/talk" component={Talk} />
 
                 <Route render={() => <Redirect to="/404" />} />
             </Switch>

@@ -86,7 +86,7 @@ const option = {
         }
     }, {
         name: '完成项目数',
-        type: 'bar',
+        type: 'line',
         data: data,
         xAxisIndex: 1,
         z: 3,
@@ -108,9 +108,15 @@ const option = {
 const EchartsProjects = () => (
     <ReactEcharts
         option={option}
-        style={{height: '212px', width: '100%'}}
+        style={{height: '300px', width: '100%'}}
         className={'react_for_echarts'}
     />
 );
-
+const EchartsProjects2 = () => (
+    <ReactEcharts
+        option={option}
+        style={{height: '300px', width: '100%'}}
+        className={'react_for_echarts'}
+    />
+);
 export default EchartsProjects;

@@ -10,13 +10,14 @@ export const menus = [
             // { key: '/app/ui/notifications', title: '通知提醒框', icon: '', },
             // { key: '/app/ui/tabs', title: '标签页', icon: '', },
             { key: '/app/ui/banners', title: '轮播图', icon: '', },
-            // { key: '/app/ui/wysiwyg', title: '富文本', icon: '', },
+            { key: '/app/ui/wysiwyg', title: '富文本', icon: '', },
             // { key: '/app/ui/drags', title: '拖拽', icon: '', },
             { key: '/app/ui/gallery', title: '画廊', icon: '', },
             { key: '/app/ui/test', title: 'Test', icon: '', },
             // { key: '/app/ui/map', title: '地图'},
         ],
     },
+    { key: '/app/talk', title: '留言', icon: 'mobile', },
     // {
     //     key: '/app/animation', title: '动画', icon: 'rocket',
     //     sub: [

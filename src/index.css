@@ -3,3 +3,10 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+.form-name{
+  color: #ccc;
+}
+.form-time{
+  margin-left: 10px;
+  color:#ccc
+}
