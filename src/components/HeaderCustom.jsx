@@ -2,7 +2,7 @@
  * Created by hao.cheng on 2017/4/13.
  */
 import React, { Component } from 'react';
-import { Menu, Icon, Layout, Badge, Popover } from 'antd';
+import { Menu, Icon, Layout, Badge, Popover, Modal, Button } from 'antd';
 import screenfull from 'screenfull';
 import { gitOauthToken, gitOauthInfo } from '../axios';
 import { queryString } from '../utils';
@@ -18,8 +18,10 @@ class HeaderCustom extends Component {
     state = {
         user: '',
         visible: false,
+        mvisible: false
     };
     componentDidMount() {
+        console.log('props:', this.props);
         const QueryString = queryString();
         // if (QueryString.hasOwnProperty('code')) {
         //     console.log(QueryString);
@@ -57,7 +59,6 @@ class HeaderCustom extends Component {
         if (screenfull.enabled) {
             screenfull.request();
         }
-
     };
     menuClick = e => {
         console.log(e);
@@ -70,6 +71,11 @@ class HeaderCustom extends Component {
     hello = () => {
         this.props.history.push('/app/hello')
     }
+    setUser = () => {
+        this.setState({
+            mvisible: true,
+        });
+    }
     popoverHide = () => {
         this.setState({
             visible: false,
@@ -78,6 +84,21 @@ class HeaderCustom extends Component {
     handleVisibleChange = (visible) => {
         this.setState({ visible });
     };
+    handleMvisibleChange = (mvisible) => {
+        this.setState({ mvisible });
+    }
+    handleOk = (e) => {
+        console.log(e);
+        this.setState({
+          mvisible: false,
+        });
+      }
+      handleCancel = (e) => {
+        console.log(e);
+        this.setState({
+          mvisible: false,
+        });
+      }
     render() {
         const { responsive, path } = this.props;
         return (
@@ -95,12 +116,21 @@ class HeaderCustom extends Component {
                         />
                     )
                 }
+                <Modal
+                title="用户信息"
+                visible={this.state.mvisible}
+                onOk={this.handleOk}
+                onCancel={this.handleCancel}
+                >
+                <p>用户名：{this.props.user.userName}</p>
+                <p>用户角色：{this.props.user.role}</p>
+                <p>用户权限：{this.props.user.permissions}</p>
+              </Modal>
                 <Menu
                     mode="horizontal"
                     style={{ lineHeight: '64px', float: 'right' }}
                     onClick={this.menuClick}
                 >
-                   
                     <Menu.Item key="1">
                         <Badge count={25} overflowCount={10} style={{marginLeft: 10}}>
                             <Icon type="notification" />
@@ -113,7 +143,7 @@ class HeaderCustom extends Component {
                             <Menu.Item key="logout"><span onClick={this.logout}>退出登录</span></Menu.Item>
                         </MenuItemGroup>
                         <MenuItemGroup title="设置中心">
-                            <Menu.Item key="setting:3">个人设置</Menu.Item>
+                            <Menu.Item key="setting:3"><span onClick={this.setUser}>个人设置</span></Menu.Item>
                             <Menu.Item key="setting:4">系统设置</Menu.Item>
                         </MenuItemGroup>
                     </SubMenu>

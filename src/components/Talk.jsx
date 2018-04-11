@@ -43,10 +43,23 @@ class CommentList extends Component{
 }
 
 class CommentForm extends Component{
+    constructor(){
+        super();
+        this.timetrans = this.timetrans.bind(this);
+    }
+    timetrans = (date) => {
+        var Y = date.getFullYear() + '-';
+        var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+        var D = (date.getDate() < 10 ? '0' + (date.getDate()) : date.getDate()) + ' ';
+        var h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':';
+        var m = (date.getMinutes() <10 ? '0' + date.getMinutes() : date.getMinutes()) + ':';
+        var s = (date.getSeconds() <10 ? '0' + date.getSeconds() : date.getSeconds());
+        return Y+M+D+h+m+s;
+    }
     handleSubmit = () => {
         let author = this.refs.author.value.trim();
         let msg = this.refs.msg.value.trim();
-        let dtime = new Date();
+        let dtime = this.timetrans(new Date());
         if ( !author || !msg ) {
             return ;
         }
@@ -60,7 +73,7 @@ class CommentForm extends Component{
             <div >
                 <form >
                     <fieldset>
-                        <legend>comment here</legend>
+                        <legend>可以在这里说您想说的话</legend>
                         <div>
                             <label>姓名</label>
                             <input ref='author' defaultValue='muller' />
@@ -93,7 +106,7 @@ class CommentBox extends Component{
     }
     componentWillMount(){
         const t = this;
-        axios.get('http://localhost:3000/getMsg')
+        axios.get('http://39.108.165.204:3000/getMsg')
           .then(function (response) {
             console.log(response);
             t.setState({data: response.data});
@@ -118,12 +131,12 @@ class CommentBox extends Component{
             dtime:msg.dtime
         }
         const t = this;
-        axios.get('http://localhost:3000/saveMsg'+
+        axios.get('http://39.108.165.204:3000/saveMsg'+
         '?author='+query.author
         +'&msg='+query.msg+'&dtime='+query.dtime)
           .then(function (response) {
             console.log(response);
-            axios.get('http://localhost:3000/getMsg')
+            axios.get('http://39.108.165.204:3000/getMsg')
             .then(function (response) {
               console.log(response);
               t.setState({data: response.data});
@@ -134,10 +147,7 @@ class CommentBox extends Component{
           })
           .catch(function (error) {
             console.log(error);
-          });
-
-        
-        
+          });     
     };
     render(){
         return (

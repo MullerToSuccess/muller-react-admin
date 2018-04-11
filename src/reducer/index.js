@@ -1,6 +1,4 @@
-/**
- * Created by 叶子 on 2017/7/30.
- */
+
 import { combineReducers } from 'redux';
 import * as type from '../action/type';
 
@@ -9,11 +7,12 @@ const handleData = (state = {isFetching: true, data: {}}, action) => {
         case type.REQUEST_DATA:
             return {...state, isFetching: true};
         case type.RECEIVE_DATA:
-            return {...state, isFetching: false, data: action.data};
+            return {...state, isFetching: false, data: action.data};//在receiveData的时候返回的action的data
         default:
             return {...state};
     }
 };
+//httpData是一个reducer：
 const httpData = (state = {}, action) => {
     switch (action.type) {
         case type.RECEIVE_DATA:
@@ -26,7 +25,7 @@ const httpData = (state = {}, action) => {
             return {...state};
     }
 };
-
+//combineReducers把所有的reduce组合，现在只有一个httpData
 export default combineReducers({
     httpData
 });

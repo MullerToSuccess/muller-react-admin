@@ -4,7 +4,7 @@ import './index.css';
 import './style/lib/animate.css';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
+import thunk from 'redux-thunk';//异步
 import { createStore, applyMiddleware } from 'redux';
 import reducer from './reducer';
 import { AppContainer } from 'react-hot-loader';
@@ -13,13 +13,13 @@ import Page from './Page';
 // redux 注入操作
 const middleware = [thunk];
 const store = createStore(reducer, applyMiddleware(...middleware));
-console.log(store.getState());
+console.log(store.getState());//现在的state是一个httpData
 
-
+//在Component外包一层Provider供应store,所有的子组件都可以用store了
 const render = Component => {   // 增加react-hot-loader保持状态刷新操作，如果不需要可去掉并把下面注释的打开
     ReactDOM.render(
         <AppContainer>
-            <Provider store={store}>
+            <Provider store={store}>  
                 <Component store={store} />
             </Provider>
         </AppContainer>

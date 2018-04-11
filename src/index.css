@@ -10,3 +10,7 @@ body {
   margin-left: 10px;
   color:#ccc
 }
+.board-main-item{
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+}
