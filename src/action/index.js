@@ -11,6 +11,19 @@ export const receiveData = (data, category) => ({
     data,
     category
 });
+
+//自定义的todo的action:
+
+export const changeTextAction = (data) => ({  
+    type:'CHANGE_TEXT',
+    data 
+});  
+export const buttonClickAction = (data) => ({  
+    type:'BUTTON_CLICK',
+    data  
+}) 
+
+
 /**
  * 请求数据调用方法
  * @param funcName      请求接口的函数名

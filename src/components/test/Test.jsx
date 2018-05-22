@@ -2,7 +2,7 @@
  * Created by Muller on 2018/3/27.
  */
 import React from 'react';
-import {Row, Card} from 'antd';
+import {Row, Card, Button} from 'antd';
 import {createStore} from 'redux';
 import BreadcrumbCustom from '../BreadcrumbCustom';
 // import EchartsViews from '../dashboard/EchartsViews';
@@ -10,11 +10,12 @@ import EchartsProjects from '../dashboard/EchartsProjects';
 
 
 
-const Counter = ({value, onIncrement, onDecrement}) => (
+const Counter = ({value, onIncrement, onDecrement, onMultip}) => (
     <div>
     <h1>{value}</h1>
-    <button onClick={onIncrement}>+</button>
-    <button onClick={onDecrement}>-</button>
+    <Button onClick={onIncrement}>+</Button>
+    <Button onClick={onDecrement}>-</Button>
+    <Button onClick={onMultip}>*</Button>
     </div>
   );
 const reducer  = (state = 0, action) => {
@@ -23,6 +24,9 @@ const reducer  = (state = 0, action) => {
             return state + 1;
         case 'DECREMENT':
             return state - 1;
+        case 'MULTI5':
+            console.log(state);
+            return state * 5;
         default:
             return state;
     }
@@ -54,6 +58,7 @@ class Test extends React.Component {
             value={this.state.count}
             onIncrement={() => store.dispatch({type: 'INCREMENT'})}
             onDecrement={() => store.dispatch({type: 'DECREMENT'})}
+            onMultip={() => store.dispatch({type: 'MULTI5'})}
           />
             </Card>
         </Row>

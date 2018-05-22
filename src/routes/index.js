@@ -28,6 +28,8 @@ import Gallery from '../components/ui/Gallery';
 // import Hello from '../components/Hello';s
 import Test from '../components/test/Test';
 import Talk from '../components/Talk';
+import Book from '../components/Book';
+import Todo from '../components/Todo';
 // const WysiwygBundle = (props) => (
 //     <Bundle load={Wysiwyg}>
 //         {(Component) => <Component {...props} />}
@@ -75,6 +77,10 @@ export default class CRouter extends Component {
               <Route exact path="/app/cssModule" component={Cssmodule} />
                 <Route exact path="/app/hello" component={Hello} />*/}
                 <Route exact path="/app/talk" component={Talk} />
+
+                <Route exact path="/app/book" component={Book} />
+                
+                <Route exact path="/app/todo" component={Todo} />
 
                 <Route render={() => <Redirect to="/404" />} />
             </Switch>

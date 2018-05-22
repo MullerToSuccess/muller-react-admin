@@ -25,7 +25,23 @@ const httpData = (state = {}, action) => {
             return {...state};
     }
 };
+
+const mReducer = (state = {text:"Hello"}, action) => {  
+    switch (action.type) {  
+        case type.changeTextAction:  
+            return {  
+                text: state.text ==='Hello' ? 'world':'Hello'  
+            }  
+        case type.buttonClickAction:  
+            return {  
+                text: 'Hello world'  
+            }  
+        default:  
+            return {text:"Hello"};  
+    }  
+}  
 //combineReducers把所有的reduce组合，现在只有一个httpData
 export default combineReducers({
-    httpData
+    httpData,
+    mReducer
 });

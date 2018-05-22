@@ -18,6 +18,8 @@ export const menus = [
         ],
     },
     { key: '/app/talk', title: '留言', icon: 'mobile', },
+    { key: '/app/book', title: 'Book', icon: 'mobile', },
+    { key: '/app/todo', title: 'Todo', icon: 'mobile', },
     // {
     //     key: '/app/animation', title: '动画', icon: 'rocket',
     //     sub: [

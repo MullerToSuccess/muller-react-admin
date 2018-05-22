@@ -4,7 +4,8 @@
 import React, {Component} from 'react';
 import {Row, Card,Input, Button} from 'antd';
 import axios from 'axios';
-// import db from '../db.js';
+import remoteURL from '../varibles.js';
+// import db from '../db.js';;
 
 // import EchartsViews from '../dashboard/EchartsViews';
 
@@ -81,7 +82,7 @@ class CommentForm extends Component{
                         </div>
                         <div>
                             <label>留言</label>
-                            <textarea  ref='msg' defaultValue='this is a message' />
+                            <textarea  className='m-textArea' ref='msg' defaultValue='this is a message'  />
                             <span >正确格式为：1~240个字符(已输入字符数: )</span>
                         </div>
                         <div>
@@ -106,16 +107,15 @@ class CommentBox extends Component{
     }
     componentWillMount(){
         const t = this;
-        axios.get('http://39.108.165.204:3000/getMsg')
+        // axios.get('http://39.108.165.204:3000/getMsg')
+        axios.get('http://localhost:3000/getMsg')
           .then(function (response) {
             console.log(response);
             t.setState({data: response.data});
           })
           .catch(function (error) {
             console.log(error);
-          });
-
-          
+          });  
     }
     handleCommentSubmit = (msg)=>{ //comment 就是表名
         // alert(12);
@@ -131,12 +131,14 @@ class CommentBox extends Component{
             dtime:msg.dtime
         }
         const t = this;
-        axios.get('http://39.108.165.204:3000/saveMsg'+
+        //axios.get('http://39.108.165.204:3000/saveMsg'+
+        axios.get('http://localhost:3000/saveMsg'+
         '?author='+query.author
         +'&msg='+query.msg+'&dtime='+query.dtime)
           .then(function (response) {
             console.log(response);
-            axios.get('http://39.108.165.204:3000/getMsg')
+            // axios.get('http://39.108.165.204:3000/getMsg')
+            axios.get('http://localhost:3000/getMsg')
             .then(function (response) {
               console.log(response);
               t.setState({data: response.data});
